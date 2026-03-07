@@ -61,7 +61,7 @@ export default function App() {
   const [pageSize, setPageSize] = useState(5);
   const [apiBaseUrl, setApiBaseUrl] = useState(Api_Url[0]);
 
-  const runAgainstAvailableServer = async (action) => {
+  const RunServer = async (action) => {
     const candidates = [
       apiBaseUrl,
       ...Api_Url.filter((base) => base !== apiBaseUrl)
@@ -87,7 +87,7 @@ export default function App() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await runAgainstAvailableServer((base) =>
+      const response = await RunServer((base) =>
         axios.get(`${base}/users`)
       );
       setRecords(response.data);
@@ -165,14 +165,14 @@ export default function App() {
 
     try {
       if (editingId) {
-        await runAgainstAvailableServer((base) =>
+        await RunServer((base) =>
           axios.put(`${base}/users/${editingId}`, {
             ...payload,
             id: editingId
           })
         );
       } else {
-        await runAgainstAvailableServer((base) =>
+        await RunServer((base) =>
           axios.post(`${base}/users`, payload)
         );
       }
@@ -199,7 +199,7 @@ export default function App() {
 
   const softDelete = async (id) => {
     try {
-      await runAgainstAvailableServer((base) =>
+      await RunServer((base) =>
         axios.patch(`${base}/users/${id}`, { status: false })
       );
       await fetchUsers();

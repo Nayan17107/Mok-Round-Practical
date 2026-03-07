@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "name": "Nayan Prajapati",
+      "email": "prajapatinayan17107@gmail.com",
+      "phone": "09714427555",
+      "image": "https://thumbs.dreamstime.com/b/portrait-handsome-smiling-young-man-folded-arms-smiling-joyful-cheerful-men-crossed-hands-isolated-studio-shot-172869765.jpg",
+      "status": true,
+      "id": "4051"
+    },
+    {
+      "id": "71c4",
+      "name": "Meet",
+      "email": "meet@gmail.com",
+      "phone": "974563467",
+      "image": "https://img.freepik.com/free-photo/close-up-portrait-handsome-smiling-young-man-white-t-shirt-blurry-outdoor-nature_176420-6305.jpg?semt=ais_rp_50_assets&w=740&q=80",
+      "status": true
+    },
+    {
+      "name": "Luv",
+      "email": "luv@gmail.com",
+      "phone": "9686553376",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoxMUc_2D0YRzfmsaVQb5aE3pfTFXRowyngA&s",
+      "status": true,
+      "id": "4d1e"
+    },
+    {
+      "id": "b815",
+      "name": "Darshik",
+      "email": "darshik@gmail.com",
+      "phone": "765532432",
+      "image": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?cs=srgb&dl=pexels-italo-melo-881954-2379004.jpg&fm=jpg",
+      "status": true
+    },
+    {
+      "id": "be2e",
+      "name": "Jaydeep",
+      "email": "jaydeep@gmail.com",
+      "phone": "86746436",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/033/129/417/small/a-business-man-stands-against-white-background-with-his-arms-crossed-ai-generative-photo.jpg",
+      "status": true
+    },
+    {
+      "id": "62e0",
+      "name": "Krish",
+      "email": "krish@gmail.com",
+      "phone": "997564764",
+      "image": "https://thumbs.dreamstime.com/b/young-indian-man-happy-outdoors-looking-camera-39595562.jpg",
+      "status": true
+    }
+  ]
+}

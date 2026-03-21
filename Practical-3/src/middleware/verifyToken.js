@@ -1,7 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'practical-3';
-
 exports.verifyToken = (req, res, next) => {
     try {
         const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
@@ -9,8 +7,10 @@ exports.verifyToken = (req, res, next) => {
         if (!token) {
             return res.status(401).json({ message: 'No token provided' });
         }
-
-        const decoded = jwt.verify(token, JWT_SECRET);
+        // console.log(token);
+        
+        const decoded = jwt.verify(token, 'practical-3');
+        // console.log(decoded);
         
         req.user = decoded;
         next();

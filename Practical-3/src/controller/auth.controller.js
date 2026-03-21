@@ -2,8 +2,6 @@ const User = require('../model/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'practical-3';
-
 exports.register = async (req, res) => {
     try {
         const {
@@ -13,6 +11,8 @@ exports.register = async (req, res) => {
             confirm_password,
             conform_password
         } = req.body;
+        
+        // console.log(req.body);
 
         const confirmedPassword = confirm_password ?? conform_password;
 
@@ -44,15 +44,7 @@ exports.register = async (req, res) => {
             conform_password: hashConformPassword
         });
 
-        const safeUser = {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-            createdAt: user.createdAt,
-            updatedAt: user.updatedAt
-        };
-
-        return res.status(201).json({ message: 'User registered', user: safeUser });
+        return res.status(201).json({ message: 'User registered', user });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: 'Server error' });
@@ -62,6 +54,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
+        // console.log(req.body);
 
         if (!email || !password) {
             return res.status(400).json({ message: 'Email and password are required' });
@@ -83,17 +76,9 @@ exports.login = async (req, res) => {
             username: user.username
         };
 
-        const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign(payload, 'practical-3', { expiresIn: '1h' });
 
-        const safeUser = {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-            createdAt: user.createdAt,
-            updatedAt: user.updatedAt
-        };
-
-        return res.status(200).json({ message: 'Login successful', token, user: safeUser });
+        return res.status(200).json({ message: 'Login successful', token, user: payload });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: 'Server error' });

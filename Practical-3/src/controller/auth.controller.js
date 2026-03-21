@@ -9,14 +9,11 @@ exports.register = async (req, res) => {
             email,
             password,
             confirm_password,
-            conform_password
         } = req.body;
         
-        // console.log(req.body);
+        console.log(req.body);
 
-        const confirmedPassword = confirm_password ?? conform_password;
-
-        if (!username || !email || !password || !confirmedPassword) {
+        if (!username || !email || !password || !confirm_password) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
@@ -25,7 +22,7 @@ exports.register = async (req, res) => {
             return res.status(400).json({ message: 'Invalid email format' });
         }
 
-        if (password !== confirmedPassword) {
+        if (password !== confirm_password) {
             return res.status(400).json({ message: 'Password and confirm password must match' });
         }
 
@@ -35,7 +32,7 @@ exports.register = async (req, res) => {
         }
 
         const hashPassword = await bcrypt.hash(password, 12);
-        const hashConformPassword = await bcrypt.hash(confirmedPassword, 12);
+        const hashConformPassword = await bcrypt.hash(confirm_password, 12);
 
         const user = await User.create({
             username,

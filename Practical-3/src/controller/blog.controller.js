@@ -4,6 +4,7 @@ const Blog = require('../model/blog.model');
 exports.createBlog = async (req, res) => {
     try {
         const { title, content, category, isPublished } = req.body;
+        // console.log(req.body);
 
         if (!title || !content || !category) {
             return res.status(400).json({ message: 'Title, content, and category are required' });
